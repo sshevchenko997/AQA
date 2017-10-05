@@ -1,7 +1,7 @@
 package com.mycompany.app.my_app;
 
 
-import java.util.concurrent.TimeUnit;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -17,7 +17,6 @@ public class Script2 extends Configuration  {
 	for (int i = 0;i < MenusItemsWithcssClassContainer.length;i++) {
 		driver.findElement(By.linkText(MenusItemsWithcssClassContainer[i])).click();
 		driver.navigate().refresh();
-		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 		Assert.assertEquals(MenusItemsWithcssClassContainer[i],driver.findElement(By.cssSelector(".breadcrumb-container")).getText());
 		System.out.println(MenusItemsWithcssClassContainer[i]);
 			}	 		
@@ -28,7 +27,6 @@ public class Script2 extends Configuration  {
 	for (int i = 0;i < MenusItemsWithcssClassBreadcrumb.length;i++) {
 		driver.findElement(By.linkText(MenusItemsWithcssClassBreadcrumb[i])).click();
 		driver.navigate().refresh();
-		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 		Assert.assertEquals(MenusItemsWithcssClassBreadcrumb[i],driver.findElement(By.cssSelector(".breadcrumb>li>a")).getText());
 		System.out.println(MenusItemsWithcssClassBreadcrumb[i]);
 			}	
@@ -38,7 +36,6 @@ public class Script2 extends Configuration  {
 	for (int i = 0;i < MenusItemsWithCssClassCurrent.length;i++) {
 		driver.findElement(By.linkText(MenusItemsWithCssClassCurrent[i])).click();
 		driver.navigate().refresh();
-		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 		Assert.assertEquals(MenusItemsWithCssClassCurrent[i],driver.findElement(By.cssSelector(".breadcrumb-current")).getText());
 		System.out.println(MenusItemsWithCssClassCurrent[i]);
 		}	
@@ -46,16 +43,15 @@ public class Script2 extends Configuration  {
 	 
 	driver.findElement(By.linkText("International")).click();
 	driver.navigate().refresh();
-	driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 	Assert.assertEquals("Локализация",driver.findElement(By.cssSelector(".breadcrumb-container")).getText());
 	 
 	driver.findElement(By.linkText("Shop Parameters")).click();
 	driver.navigate().refresh();
-	driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 	Assert.assertEquals("Общие настройки",driver.findElement(By.cssSelector(".breadcrumb-container")).getText());
   
 	}
 	public void logout(WebDriver driver) {
-		driver.close();
+		System.out.println("@Test #2 pass");
+		driver.quit();
 		}
 }

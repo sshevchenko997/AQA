@@ -2,13 +2,11 @@ package com.mycompany.app.my_app;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-//import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.concurrent.TimeUnit;
 
 public class LoginPage extends Configuration {
 	
-	WebDriver driver = Configuration.getDriver();
-	By email = By.id("email");
+		By email = By.id("email");
 	public static final String mail = "webinar.test@gmail.com";
 	By passwd = By.id("passwd");
 	public static String paswd = "Xcg7299bnSmMuRLp9ITw";
@@ -17,42 +15,39 @@ public class LoginPage extends Configuration {
 	By userIcon = By.id("employee_infos");
 	By logout = By.id("header_logout");
 		
-	public WebDriver setdriver() {
-		return driver;
-	}
-	
-	public void openWeb() {
+		
+	public void openWeb(WebDriver driver) {
 		driver.manage().window().maximize();
 				 		driver.get(url);
 		 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 	}
 	
-	public void enterEmail() {
+	public void enterEmail(WebDriver driver) {
 		driver.findElement(email).sendKeys(mail);
 	}
 	
-	public void enterPasswrd() {
+	public void enterPasswrd(WebDriver driver) {
 		driver.findElement(passwd).sendKeys(paswd);
 	}
 	
-	public void enterSubmit() {
+	public void enterSubmit(WebDriver driver) {
     driver.findElement(submit).click();
     
 	}
 	
-	public void clikcUserIcon() {
+	public void clikcUserIcon(WebDriver driver) {
     driver.findElement(userIcon).click();
     }
 	
-	public void clickLogOut() {
+	public void clickLogOut(WebDriver driver) {
     driver.findElement(logout).click();
+    
     }
     
-	public void printLog() {
-	System.out.println("Login and Logout work properly");
-	driver.close();
-	}
-    
+	public void printLog(WebDriver driver) {
+	    driver.close();
+	    
+	    }
 
 	
 }
